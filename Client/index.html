@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Directory and file browser</title>
+
+    <!-- Style sheets -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    
+</head>
+
+<body ng-app="directoryBrowser">
+
+    
+    <div class="container-fluid">
+        <div class="row row-centered">
+            <div class="col-md-6 col-centered">
+                <div ng-include="'app/dirInfo/dirInfoListView.html'"></div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/common.services.js"></script>
+    <script src="common/dirInfoResource.js"></script>
+
+    <!-- Product Controllers -->
+    <script src="app/dirInfo/dirInfoListCtrl.js"></script>
+</body>
+
+</html>

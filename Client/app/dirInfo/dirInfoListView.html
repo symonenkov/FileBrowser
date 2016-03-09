@@ -1,0 +1,54 @@
+﻿<div ng-controller="dirInfoListCtrl as vm">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4><b>Less 10Mb</b></h4>
+                    <hr />
+                    <h4>
+                        {{vm.dirInfos.CountOfSmallFiles}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4><b>10Mb - 50Mb</b></h4>
+                    <hr />
+                    <h4>
+                        {{vm.dirInfos.CountOfMediumFiles}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4><b>More 100Mb</b></h4>
+                    <hr />
+                    <h4>
+                        {{vm.dirInfos.CountOfLargeFiles}}
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><b>Current path:  </b> {{vm.dirInfos.CurrentDirectory}}</div>
+        
+        
+        <div class="list-group">
+            <a href="#" class="list-group-item" id="folders" ng-click="vm.ReturnToParentDirectory(vm.dirInfos.ParentDirectory, vm.dirInfos.CurrentDirectory)"><span class="glyphicon glyphicon-level-up"> </span>  .. </a>
+        </div>
+        <div class="list-group" ng-repeat="d in vm.dirInfos.ListOfDirectories">
+            <a href="#" class="list-group-item " id="folders" ng-click="vm.OpenDirectory(vm.dirInfos.CurrentDirectory + '\\' + d)"><span class="glyphicon glyphicon-folder-close"> </span>  {{ d }}</a>
+        </div>
+        <div class="list-group" ng-repeat="f in vm.dirInfos.ListOfFiles">
+            <a class="list-group-item " id="files"><span class="glyphicon glyphicon-file" data-name="{{f}}"> </span> {{ f }}</a>
+        </div>
+    </div>
+</div>
